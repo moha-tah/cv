@@ -10,4 +10,5 @@
 *.out
 *.run.xml
 *.synctex.gz
+*.synctex(busy)
 *.pdf
