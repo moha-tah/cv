@@ -6,20 +6,25 @@ jobs:
     env:
       DIR: .
       FILE: cv
+      FILE-FR: cv-fr
     steps:
       - name: Set up Git repository
         uses: actions/checkout@v4
       - name: cv
         uses: dante-ev/latex-action@latest
         with:
-          root_file: ${{ env.FILE }}
+          root_file: |
+            ${{ env.FILE }}
+            ${{ env.FILE-FR }}
           working_directory: ${{ env.DIR }}
-      - name: move
+      - name: move cv
         run: mkdir -p github_artifacts && mv ${{ env.DIR }}/${{ env.FILE }}.pdf ./github_artifacts/
-      - name: Upload pdf as artifact
+      - name: move cv-fr
+        run: mkdir -p github_artifacts && mv ${{ env.DIR }}/${{ env.FILE-FR }}.pdf ./github_artifacts/
+      - name: Upload pdfs as artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: ${{ env.FILE }}.pdf
+          name: ${{ env.FILE }}.pdf ${{ env.FILE-FR }}.pdf
           path: ./github_artifacts
   deploy:
     needs: [build]
