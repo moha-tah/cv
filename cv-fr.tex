@@ -1,0 +1,180 @@
+%----------------------------------------------------------------------------------------
+%	DOCUMENT DEFINITION
+%----------------------------------------------------------------------------------------
+
+\documentclass[a4paper,12pt]{article}
+
+%----------------------------------------------------------------------------------------
+%	FONT
+%----------------------------------------------------------------------------------------
+
+% \usepackage{fontspec}
+% \defaultfontfeatures{Ligatures=TeX}
+
+% \setmainfont[
+% SmallCapsFont = Fontin-SmallCaps.otf,
+% BoldFont = Fontin-Bold.otf,
+% ItalicFont = Fontin-Italic.otf
+% ]
+% {Fontin.otf}
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES
+%----------------------------------------------------------------------------------------
+\usepackage{url}
+\usepackage{parskip} 	
+
+%other packages for formatting
+\RequirePackage{color}
+\RequirePackage{graphicx}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage[scale=0.9]{geometry}
+
+%tabularx environment
+\usepackage{tabularx}
+
+%for lists within experience section
+\usepackage{enumitem}
+
+% centered version of 'X' col. type
+\newcolumntype{C}{>{\centering\arraybackslash}X} 
+
+%to prevent spillover of tabular into next pages
+\usepackage{supertabular}
+\usepackage{tabularx}
+\newlength{\fullcollw}
+\setlength{\fullcollw}{0.47\textwidth}
+
+%custom \section
+\usepackage{titlesec}				
+\usepackage{multicol}
+\usepackage{multirow}
+
+%CV Sections inspired by: 
+%http://stefano.italians.nl/archives/26
+\titleformat{\section}{\Large\scshape\raggedright}{}{0em}{}[\titlerule]
+\titlespacing{\section}{0pt}{10pt}{10pt}
+
+%for publications
+\usepackage[style=authoryear,sorting=ynt, maxbibnames=2]{biblatex}
+
+%Setup hyperref package, and colours for links
+\definecolor{linkcolour}{rgb}{0,0.2,0.6}
+\usepackage[
+    pdfauthor={Mohamed Tahiri},
+    pdftitle={CV - Mohamed Tahiri},
+    pdfsubject={CV of Mohamed Tahiri},
+    pdfkeywords={Mohamed Tahiri, CV, Resume},
+    colorlinks,
+    breaklinks,
+    urlcolor=linkcolour,
+    linkcolor=linkcolour
+]{hyperref}
+
+\setlength\bibitemsep{1em}
+
+%for social icons
+\usepackage{fontawesome5}
+
+%debug page outer frames
+%\usepackage{showframe}
+
+
+% job listing environments
+\newenvironment{jobshort}[2]
+    {
+    \begin{tabularx}{\linewidth}{@{}l X r@{}}
+    \textbf{#1} & \hfill &  #2 \\[3.75pt]
+    \end{tabularx}
+    }
+    {
+    }
+
+
+\newenvironment{joblong}[2]
+    {
+    \begin{tabularx}{\linewidth}{@{}l X r@{}}
+    \textbf{#1} & \hfill &  #2 \\[3.75pt]
+    \end{tabularx}
+    \begin{minipage}[t]{\linewidth}
+    \begin{itemize}[nosep,after=\strut, leftmargin=1em, itemsep=3pt,label=--]
+    }
+    {
+    \end{itemize}
+    \end{minipage}    
+    }
+
+
+
+%----------------------------------------------------------------------------------------
+%	BEGIN DOCUMENT
+%----------------------------------------------------------------------------------------
+\begin{document}
+
+% non-numbered pages
+\pagestyle{empty}
+
+%----------------------------------------------------------------------------------------
+%	TITLE
+%----------------------------------------------------------------------------------------
+
+\begin{tabularx}{\linewidth}{@{} C @{}}
+    \Huge{Mohamed Tahiri}                                                         \\[7.5pt]
+    \href{https://github.com/moha-tah}{\raisebox{-0.05\height}\faGithub\ moha-tah} \ $|$ \
+    \href{https://linkedin.com/in/moha-tah}{\raisebox{-0.05\height}\faLinkedin\ moha-tah} \ $|$ \
+    \href{https://mohamedtahiri.com}{\raisebox{-0.05\height}\faGlobe \ mohamedtahiri.com} \ $|$ \
+    \href{mailto:me@mohamedtahiri.com}{\raisebox{-0.05\height}\faEnvelope \ me@mohamedtahiri.com} \ $|$ \
+    \href{tel:+33768442555}{\raisebox{-0.05\height}\faMobile \ +33 7 68 44 25 55} \\
+\end{tabularx}
+
+%----------------------------------------------------------------------------------------
+% EXPERIENCE SECTIONS
+%----------------------------------------------------------------------------------------
+
+%Interests/ Keywords/ Summary
+\section{Summary}
+This is my CV.
+
+%Experience
+\section{Work Experience}
+
+\begin{jobshort}{Designation}{present - present}
+    line
+\end{jobshort}
+
+
+\begin{joblong}{Designation}{present - present}
+    \item line
+    \item line
+\end{joblong}
+
+%Projects
+\section{Projects}
+
+\begin{tabularx}{\linewidth}{ @{}l r@{} }
+    \textbf{Some Project} & \hfill \href{https://link.com}{Link} \\[3.75pt]
+    \multicolumn{2}{@{}X@{}}{line}                               \\
+\end{tabularx}
+
+%----------------------------------------------------------------------------------------
+%	EDUCATION
+%----------------------------------------------------------------------------------------
+\section{Education}
+\begin{tabularx}{\linewidth}{@{}l X@{}}
+    present - present & line \textbf{College} \hfill () \\
+
+    present - present & line \hfill  ()                 \\
+
+    present - present & line \hfill  ()                 \\
+\end{tabularx}
+
+%----------------------------------------------------------------------------------------
+%	SKILLS
+%----------------------------------------------------------------------------------------
+\section{Skills}
+\begin{tabularx}{\linewidth}{@{}l X@{}}
+    Some Skills & \normalsize{line} \\
+    More Skills & \normalsize{line} \\
+\end{tabularx}
+
+\end{document}
