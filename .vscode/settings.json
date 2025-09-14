@@ -1,4 +1,17 @@
 {
-  "explorer.excludeGitIgnore": true,
+  "files.exclude": {
+    "*.aux": true,
+    "*.bbl": true,
+    "*.bcf": true,
+    "*.blg": true,
+    "*.dvi": true,
+    "*.fdb_latexmk": true,
+    "*.fls": true,
+    "*.log": true,
+    "*.out": true,
+    "*.run.xml": true,
+    "*.synctex.gz": true,
+    "*.synctex(busy)": true
+  },
   "latex-workshop.formatting.latex": "latexindent"
 }
