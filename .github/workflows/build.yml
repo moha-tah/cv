@@ -26,9 +26,14 @@ jobs:
           root_file: ${{ env.FILE-FR }}
           working_directory: ${{ env.DIR }}
       - name: Move English CV (${{ env.FILE }}.pdf)
-        run: mkdir -p github_artifacts && mv ${{ env.DIR }}/${{ env.FILE }}.pdf ./github_artifacts/cv.pdf
+        run: |
+          mkdir -p github_artifacts/en
+          cp ${{ env.DIR }}/${{ env.FILE }}.pdf ./github_artifacts/cv.pdf
+          cp ${{ env.DIR }}/${{ env.FILE }}.pdf ./github_artifacts/en/cv.pdf
       - name: Move French CV (${{ env.FILE-FR }}.pdf)
-        run: mkdir -p github_artifacts/fr && mv ${{ env.DIR }}/${{ env.FILE-FR }}.pdf ./github_artifacts/fr/cv.pdf
+        run: |
+          mkdir -p github_artifacts/fr
+          cp ${{ env.DIR }}/${{ env.FILE-FR }}.pdf ./github_artifacts/fr/cv.pdf
       - name: Upload PDFs as Artifacts
         uses: actions/upload-artifact@v4
         with:
@@ -64,4 +69,4 @@ jobs:
         uses: planetoftheweb/copy-to-branches@v1.3
         env:
           key: main
-          files: index.html fr/index.html CNAME
+          files: index.html fr/index.html en/index.html CNAME
