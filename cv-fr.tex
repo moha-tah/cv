@@ -1,11 +1,11 @@
 %----------------------------------------------------------------------------------------
-%	DOCUMENT DEFINITION
+%	Document Definition
 %----------------------------------------------------------------------------------------
 
-\documentclass[a4paper,12pt]{article}
+\documentclass[a4paper,10pt]{article}
 
 %----------------------------------------------------------------------------------------
-%	FONT
+%	Font
 %----------------------------------------------------------------------------------------
 
 % \usepackage{fontspec}
@@ -19,46 +19,44 @@
 % {Fontin.otf}
 
 %----------------------------------------------------------------------------------------
-%	PACKAGES
+%	Packages
 %----------------------------------------------------------------------------------------
 \usepackage{url}
 \usepackage{parskip} 	
 
-%other packages for formatting
+% Other packages for formatting
 \RequirePackage{color}
 \RequirePackage{graphicx}
 \usepackage[usenames,dvipsnames]{xcolor}
 \usepackage[scale=0.9]{geometry}
 
-%tabularx environment
+% Tabularx environment
 \usepackage{tabularx}
 
-%for lists within experience section
+% For lists within experience section
 \usepackage{enumitem}
 
 % centered version of 'X' col. type
 \newcolumntype{C}{>{\centering\arraybackslash}X} 
 
-%to prevent spillover of tabular into next pages
+% To prevent spillover of tabular into next pages
 \usepackage{supertabular}
 \usepackage{tabularx}
 \newlength{\fullcollw}
 \setlength{\fullcollw}{0.47\textwidth}
 
-%custom \section
+% Custom \section
 \usepackage{titlesec}				
 \usepackage{multicol}
 \usepackage{multirow}
 
-%CV Sections inspired by: 
-%http://stefano.italians.nl/archives/26
 \titleformat{\section}{\Large\scshape\raggedright}{}{0em}{}[\titlerule]
-\titlespacing{\section}{0pt}{10pt}{10pt}
+\titlespacing{\section}{0pt}{5pt}{5pt}
 
-%for publications
+% For publications
 \usepackage[style=authoryear,sorting=ynt, maxbibnames=2]{biblatex}
 
-%Setup hyperref package, and colours for links
+%Setup hyperref package, and colors for links
 \definecolor{linkcolour}{rgb}{0,0.2,0.6}
 \usepackage[
     pdfauthor={Mohamed Tahiri},
@@ -84,17 +82,15 @@
 \newenvironment{jobshort}[2]
     {
     \begin{tabularx}{\linewidth}{@{}l X r@{}}
-    \textbf{#1} & \hfill &  #2 \\[3.75pt]
+    \textbf{#1} & \hfill &  #2 \\[2pt]
     \end{tabularx}
-    }
-    {
-    }
+    } {}
 
 
 \newenvironment{joblong}[2]
     {
     \begin{tabularx}{\linewidth}{@{}l X r@{}}
-    \textbf{#1} & \hfill &  #2 \\[3.75pt]
+    \textbf{#1} & \hfill &  #2 \\[2pt]
     \end{tabularx}
     \begin{minipage}[t]{\linewidth}
     \begin{itemize}[nosep,after=\strut, leftmargin=1em, itemsep=3pt,label=--]
@@ -107,74 +103,101 @@
 
 
 %----------------------------------------------------------------------------------------
-%	BEGIN DOCUMENT
+%	Begin Document
 %----------------------------------------------------------------------------------------
 \begin{document}
 
-% non-numbered pages
+% Non-numbered pages
 \pagestyle{empty}
 
 %----------------------------------------------------------------------------------------
-%	TITLE
+%	Header
 %----------------------------------------------------------------------------------------
 
 \begin{tabularx}{\linewidth}{@{} C @{}}
-    \Huge{Mohamed Tahiri}                                                         \\[7.5pt]
-    \href{https://github.com/moha-tah}{\raisebox{-0.05\height}\faGithub\ moha-tah} \ $|$ \
+    \Huge{Mohamed Tahiri}                                                                 \\[7.5pt]
+    \href{https://mohamedtahiri.com}{\raisebox{-0.05\height}\faGlobe \ mohamedtahiri.com} \\
+\end{tabularx}
+
+\begin{tabularx}{\linewidth}{@{} C @{}}
+    \href{https://github.com/moha-tah}{\raisebox{-0.05\height}\faGithub\ @moha-tah} \ $|$ \
     \href{https://linkedin.com/in/moha-tah}{\raisebox{-0.05\height}\faLinkedin\ moha-tah} \ $|$ \
-    \href{https://mohamedtahiri.com}{\raisebox{-0.05\height}\faGlobe \ mohamedtahiri.com} \ $|$ \
     \href{mailto:me@mohamedtahiri.com}{\raisebox{-0.05\height}\faEnvelope \ me@mohamedtahiri.com} \ $|$ \
     \href{tel:+33768442555}{\raisebox{-0.05\height}\faMobile \ +33 7 68 44 25 55} \\
 \end{tabularx}
 
+% \section{Résumé}
+Étudiant en Génie Informatique à l'UTC spécialisé en Systèmes Informatiques, recherche un stage de 6 mois à partir de février 2026, passionné par la conception d'architectures efficaces et le développement d'applications intelligentes et performantes.
+
 %----------------------------------------------------------------------------------------
-% EXPERIENCE SECTIONS
+%	Body
 %----------------------------------------------------------------------------------------
 
-%Interests/ Keywords/ Summary
-\section{Summary}
-This is my CV.
+\section{Expérience Professionnelle}
 
-%Experience
-\section{Work Experience}
+% \begin{joblong}{Freelance Full Stack Developer}{April 2024 - Present}
+%     \item line
+%     \item line
+% \end{joblong}
 
-\begin{jobshort}{Designation}{present - present}
-    line
-\end{jobshort}
-
-
-\begin{joblong}{Designation}{present - present}
-    \item line
-    \item line
+\begin{joblong}{Stagiaire Ingénieur Logiciel, \href{https://www.napta.io}{Napta}, Paris}{Sept. 2024 - Fév. 2025}
+    \item \textbf{Data Engineering \& Automatisation} – Conception et optimisation de pipelines ETL utilisant Python et Airflow pour APIs, SFTP, bases de données, fichiers CSV, etc., gérant des données à grande échelle (millions de lignes).
+    \item \textbf{Développement Backend et Frontend} – Amélioration d'outils Flask internes, contribution aux projets React/Next.js, et création d'une intégration GitLab-Slack réduisant de 50\% le temps de revue des PR.
+    \item \textbf{Collaboration \& Impact} – Travail transversal avec revues de code, tests, et coordination avec les Account Managers, améliorant l'efficacité d'équipe et la polyvalence technique (DevOps/CI-CD inclus).
 \end{joblong}
 
-%Projects
-\section{Projects}
+\begin{jobshort}{Enseignant Association Programmation Compétitive, \href{https://www.utc.fr}{UTC}, Compiègne}{Fév. 2024 - Fév. 2025}
+    Formation d'autres étudiants aux compétitions d'algorithmique et structures de données. Participation aux compétitions universitaires en tant que membre de cette association. Obtention de la 6ème place sur plus de 50 équipes lors d'une compétition organisée par Sopra Steria.
+\end{jobshort}
 
-\begin{tabularx}{\linewidth}{ @{}l r@{} }
-    \textbf{Some Project} & \hfill \href{https://link.com}{Link} \\[3.75pt]
-    \multicolumn{2}{@{}X@{}}{line}                               \\
-\end{tabularx}
+\begin{jobshort}{Stagiaire, \href{https://www.loreal.com}{L'Oréal}, Paris}{Jan. 2023 - Fév. 2023}
+    Application de compétences techniques pour optimiser les processus de préparation de commandes et améliorer l'efficacité des flux de travail. Collaboration avec les équipes pour rationaliser la gestion des stocks et améliorer la productivité.
+\end{jobshort}
+
+% Projets
+\section{Projets}
+
+\begin{joblong}{Moteur de Recherche de Cours – Application Web SaaS}{\href{https://mohamedtahiri.com/projects/my-biggest-project}{En savoir plus}}
+    \item Développement d'un moteur de recherche de cours SaaS avec Next.js, NestJS, PostgreSQL, Supabase, AWS, et Algolia (moteur de filtrage et classement alimenté par IA) avec 6 ingénieurs. Sortie prévue en octobre 2025.
+    \item Implémentation d'un backend sécurisé : authentification JWT, accès basé sur les rôles, pipelines CI/CD (GitHub Actions).
+    \item Lancement d'un chat en temps réel, de dashboards pour enseignants, avec tests et environnements (dev, preview, prod).
+\end{joblong}
+\begin{joblong}{Mon Portfolio – \href{https://mohamedtahiri.com}{mohamedtahiri.com}}{\href{https://github.com/moha-tah/portfolio}{Voir le code}}
+    \item Développement du frontend en Next.js avec Tailwind CSS, i18n et TanStack Query, et du backend en NestJS avec PrismaORM et Swagger pour la documentation API.
+    \item Configuration CI/CD avec GitHub Actions (traductions automatisées, tests et déploiement) et déploiement sur Vercel (frontend) et Railway (backend).
+\end{joblong}
+
+\begin{jobshort}{Sumo Spheres – Jeu Multijoueur en Ligne}{\href{https://mohamedtahiri.com/projects/online-multiplayer-game}{En savoir plus}}
+    Création d'un jeu d'arène (Windows/Mac) avec physique temps réel, adversaires pilotés par IA, et mode en ligne utilisant Unity Cloud. Ingénierie de réseau temps réel avec sockets, optimisation UDP/TCP et latence $<$200ms avec 10 joueurs.
+\end{jobshort}
+
+\begin{jobshort}{Système Distribué Décentralisé}{\href{https://mohamedtahiri.com/projects/decentralized-distributed-system}{En savoir plus}}
+    Conception d'un système distribué entièrement décentralisé où les nœuds collectent, vérifient et partagent des données de capteurs, assurant la cohérence avec horloges logiques, algorithmes d'élection, et coordination pair-à-pair.
+\end{jobshort}
 
 %----------------------------------------------------------------------------------------
-%	EDUCATION
+%	Formation
 %----------------------------------------------------------------------------------------
-\section{Education}
+\section{Formation}
+
+\begin{jobshort}{2021 - 2026    Diplôme d'Ingénieur en Informatique, \href{https://www.utc.fr}{UTC}, France}{GPA: 3.6/4.0}
+    Spécialisé en Génie des Systèmes Informatiques. \textbf{Cours principaux :} Algorithmes \& Structures de Données, POO, Architecture des Ordinateurs, OS, Réseaux, Cybersécurité, Développement Web, etc.
+\end{jobshort}
+
+\begin{jobshort}{2018 - 2021    Baccalauréat Scientifique, L'Espérance, France}{Diplôme avec Mention Très Bien}
+\end{jobshort}
+
+%----------------------------------------------------------------------------------------
+%	Compétences
+%----------------------------------------------------------------------------------------
+\section{Compétences}
+
 \begin{tabularx}{\linewidth}{@{}l X@{}}
-    present - present & line \textbf{College} \hfill () \\
-
-    present - present & line \hfill  ()                 \\
-
-    present - present & line \hfill  ()                 \\
-\end{tabularx}
-
-%----------------------------------------------------------------------------------------
-%	SKILLS
-%----------------------------------------------------------------------------------------
-\section{Skills}
-\begin{tabularx}{\linewidth}{@{}l X@{}}
-    Some Skills & \normalsize{line} \\
-    More Skills & \normalsize{line} \\
+    \textbf{Backend}           & \normalsize{Python, TypeScript, NestJS, TypeORM, Prisma, Flask, SQL, Airflow, Java}                     \\
+    \textbf{Frontend}          & \normalsize{React, Next.js, next-intl, i18next, TanStack Query, Tailwind CSS, Vite, Figma}              \\
+    \textbf{DevOps}            & \normalsize{Cloudflare, Vercel, AWS, GCP, GitHub Actions, GitLab CI/CD, Shell, Turborepo, Jest, Pytest} \\
+    \textbf{Automatisation/IA} & \normalsize{Zapier, Make, Google Apps Script, Claude Code, Cursor, OpenAI API}                          \\
+    \textbf{Langues}           & \normalsize{Français (Langue Maternelle), Anglais (Niveau C1, TOEIC 985)}                               \\
 \end{tabularx}
 
 \end{document}

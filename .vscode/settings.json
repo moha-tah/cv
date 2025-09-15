@@ -2,6 +2,7 @@
   "files.exclude": {
     "*.aux": true,
     "*.bbl": true,
+    "*.bbl-SAVE-ERROR": true,
     "*.bcf": true,
     "*.blg": true,
     "*.dvi": true,
