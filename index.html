@@ -15,7 +15,12 @@
   </head>
   <body>
     <script type="text/javascript">
-      window.location.href = "./cv.pdf";
+      const userLang = navigator.language || navigator.userLanguage;
+      if (userLang.startsWith("fr")) {
+        window.location.href = "./fr/cv.pdf";
+      } else {
+        window.location.href = "./en/cv.pdf";
+      }
     </script>
   </body>
 </html>
