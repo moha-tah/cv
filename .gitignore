@@ -13,3 +13,5 @@
 *.synctex.gz
 *.synctex(busy)
 *.pdf
+
+*.custom.tex
