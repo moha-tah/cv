@@ -15,3 +15,5 @@
 *.pdf
 
 *.custom.tex
+
+.DS_Store
