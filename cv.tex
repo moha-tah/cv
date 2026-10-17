@@ -37,10 +37,11 @@ infrastructure. Sole engineer behind an AI assistant used across an Air France-K
         with cited sources (Claude; 11 read-only tools incl. hybrid search, exact lookups, text-to-SQL; photo and voice
         input; EN/FR/ES). Live since March 2026: 59 users in five months; HR made it the intranet's entry point for
         policy questions.
-  \item Indexed 1.3M+ chunks from maintenance history, 17,800 technical manuals and the intranet (live sources refreshed
+  \item Indexed 1.3M+ chunks from maintenance history, technical manuals and the intranet (live sources refreshed
         hourly): hybrid dense + sparse search in Qdrant, Voyage AI embeddings, rank fusion and reranking.
-  \item Built retrieval and answer evaluations (77 labeled queries; 33 real multilingual questions, LLM-as-judge) and
-        benchmarked 5 embedding models and 5 rerankers; reranking lifted nDCG@10 from 0.68 to 0.84.
+  \item Built retrieval and answer evaluations (77 labeled queries; 33 real multilingual questions, LLM-as-judge) to
+        choose models, benchmarking 5 embedders and 5 rerankers: reranking lifted nDCG@10 from 0.68 to 0.84, and a model
+        upgrade cut p50 latency from 8.5 to 5.6 s and cost per question by 18\% with no quality loss.
   \item Made it reliable and cheap to run: 2,600+ tests behind a 99\% branch-coverage gate, security scans in CI,
         Terraform (111 resources) and Ansible, Sentry and CloudWatch alerts, prompt caching; under \$20 a month.
   \item Built a Claude Code plugin that turns a short Q\&A into on-brand training videos and interactive trainings
@@ -66,16 +67,17 @@ infrastructure. Sole engineer behind an AI assistant used across an Air France-K
 
 \entry{Course discovery platform}{web, iOS and Android}{2024 – Present}
 \begin{itemize}
-  \item Top contributor (1,100+ commits, team of 15): NestJS API, Next.js front end wrapped for mobile with Capacitor,
-        Algolia geo search, Supabase, and most of the Terraform/Terragrunt infrastructure (GCP, Cloudflare, Vercel).
+  \item Top committer (1,100+ commits, team of 15): NestJS backend on Supabase PostgreSQL, auth and permissions,
+        transaction-safe Algolia search sync, and most of the Terraform/Terragrunt infrastructure with daily drift checks.
 \end{itemize}
 \entrygap
 
-\entry{SDKs and integrations for a public schedules API}{Python, TypeScript}{2023 – Present}
+\entry{SDKs and integrations for a non-profit timetable platform}{Python, TypeScript}{2023 – Present}
 \begin{itemize}
-  \item Wrote the OpenAPI spec, checked nightly against the live API, and a generator for open-source, typed Python and
-        TypeScript SDKs published to PyPI and npm with 100\% test coverage.
-  \item Main contributor to the Alexa skill (TypeScript, AWS Lambda, 7 locales) and the Home Assistant integration.
+  \item Wrote the OpenAPI 3.1 spec, checked nightly against the live API, and code generators for open-source, typed
+        Python and TypeScript SDKs: 100\% test coverage, about 3,300 downloads a month on PyPI and npm.
+  \item Took over and re-architected the Alexa skill (JavaScript to TypeScript, AWS Lambda, DynamoDB, EventBridge;
+        7~locales); main author of the Home Assistant integration (118 installs; core submission in review).
 \end{itemize}
 \entrygap
 

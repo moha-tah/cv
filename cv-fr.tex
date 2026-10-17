@@ -41,9 +41,11 @@ Ingénieur IA qui met en production des systèmes à base de LLM et les mesure :
         recherches exactes, text-to-SQL ; photo et voix ; anglais, français, espagnol). En service depuis mars 2026 :
         59~utilisateurs en cinq mois ; la DRH en a fait le point d'entrée des questions RH sur l'intranet.
   \item Indexation de plus de 1,3 million de fragments (historique de maintenance et intranet mis à jour toutes les
-        heures, 17\,800 manuels) : recherche hybride dense et sparse dans Qdrant, embeddings Voyage AI, reranking.
-  \item Évaluations de la recherche et des réponses (77 requêtes annotées ; 33 questions réelles, LLM-as-judge),
-        comparaison de 5 modèles d'embedding et 5 rerankers ; le reranking porte le nDCG@10 de 0,68 à 0,84.
+        heures, manuels techniques) : recherche hybride dense et sparse dans Qdrant, embeddings Voyage AI, reranking.
+  \item Évaluations de la recherche et des réponses (77 requêtes annotées ; 33 questions réelles, LLM-as-judge)
+        comparant 5 modèles d'embedding et 5 rerankers : le reranking porte le nDCG@10 de 0,68 à 0,84,
+        et un changement de modèle a réduit la latence médiane de 8,5 à 5,6~s et le coût par question de 18\,\%
+        à qualité égale.
   \item Fiabilité et coût maîtrisés : plus de 2\,600 tests (seuil de couverture à 99\,\%), analyses de sécurité
         en CI, Terraform (111 ressources), Ansible, alertes Sentry et CloudWatch, prompt caching ; moins de 20\,\$ par mois.
   \item Plugin Claude Code qui transforme un court questionnaire en vidéos de formation et formations interactives
@@ -69,16 +71,18 @@ Ingénieur IA qui met en production des systèmes à base de LLM et les mesure :
 
 \entry{Plateforme de découverte de cours}{web, iOS et Android}{2024 – aujourd'hui}
 \begin{itemize}
-  \item Premier contributeur (plus de 1\,100 commits, équipe de 15) : API NestJS, front Next.js et Capacitor,
-        recherche géolocalisée Algolia, Supabase, et l'essentiel de l'infrastructure Terraform/Terragrunt (GCP, Cloudflare, Vercel).
+  \item Premier contributeur (plus de 1\,100 commits, équipe de 15) : backend NestJS sur PostgreSQL (Supabase),
+        authentification et permissions, synchronisation transactionnelle de la recherche Algolia, et l'essentiel de
+        l'infrastructure Terraform/Terragrunt (trois environnements, détection quotidienne des dérives).
 \end{itemize}
 \entrygap
 
-\entry{SDK et intégrations pour une API publique d'horaires}{Python, TypeScript}{2023 – aujourd'hui}
+\entry{SDK et intégrations pour une plateforme associative d'horaires}{Python, TypeScript}{2023 – aujourd'hui}
 \begin{itemize}
-  \item Spécification OpenAPI, vérifiée chaque nuit contre l'API réelle, et générateur de SDK open source typés Python et
-        TypeScript publiés sur PyPI et npm, couverts à 100\,\% par les tests.
-  \item Principal contributeur de la skill Alexa (TypeScript, AWS Lambda, 7 locales) et de l'intégration Home Assistant.
+  \item Spécification OpenAPI 3.1, vérifiée chaque nuit contre l'API réelle, et générateurs de SDK open source typés
+        Python et TypeScript : couverture de 100\,\%, environ 3\,300 téléchargements par mois sur PyPI et npm.
+  \item Reprise et refonte de la skill Alexa (de JavaScript à TypeScript, AWS Lambda, DynamoDB, EventBridge ; 7~locales) ;
+        auteur principal de l'intégration Home Assistant (118 installations ; proposée au cœur, en revue).
 \end{itemize}
 \entrygap
 
