@@ -1,214 +1,110 @@
-%----------------------------------------------------------------------------------------
-%	Document Definition
-%----------------------------------------------------------------------------------------
-
 \documentclass[a4paper,10pt]{article}
 
-%----------------------------------------------------------------------------------------
-%	Font
-%----------------------------------------------------------------------------------------
-
-% \usepackage{fontspec}
-% \defaultfontfeatures{Ligatures=TeX}
-
-% \setmainfont[
-% SmallCapsFont = Fontin-SmallCaps.otf,
-% BoldFont = Fontin-Bold.otf,
-% ItalicFont = Fontin-Italic.otf
-% ]
-% {Fontin.otf}
-
-%----------------------------------------------------------------------------------------
-%	Packages
-%----------------------------------------------------------------------------------------
-
-% Encoding packages for French characters
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
 \usepackage[french]{babel}
-\usepackage{csquotes}
-\usepackage{lmodern}
+\frenchsetup{StandardLists=true}
+\input{style}
+\renewcommand{\skillcolon}{~:}
+\hypersetup{
+  pdftitle={Mohamed Tahiri - Ingénieur IA - CV},
+  pdfauthor={Mohamed Tahiri},
+  pdfsubject={CV},
+  pdfkeywords={Ingénieur IA, LLM, agents, RAG, recherche hybride, évaluation, Python, TypeScript},
+  pdflang={fr-FR}
+}
 
-\usepackage{url}
-\usepackage{parskip} 	
-
-% Other packages for formatting
-\RequirePackage{color}
-\RequirePackage{graphicx}
-\usepackage[usenames,dvipsnames]{xcolor}
-\usepackage[scale=0.9]{geometry}
-
-% Tabularx environment
-\usepackage{tabularx}
-
-% For lists within experience section
-\usepackage{enumitem}
-
-% centered version of 'X' col. type
-\newcolumntype{C}{>{\centering\arraybackslash}X} 
-
-% To prevent spillover of tabular into next pages
-\usepackage{supertabular}
-\usepackage{tabularx}
-\newlength{\fullcollw}
-\setlength{\fullcollw}{0.47\textwidth}
-
-% Custom \section
-\usepackage{titlesec}				
-\usepackage{multicol}
-\usepackage{multirow}
-
-\titleformat{\section}{\Large\scshape\raggedright}{}{0em}{}[\titlerule]
-\titlespacing{\section}{0pt}{5pt}{5pt}
-
-% For publications
-\usepackage[style=authoryear,sorting=ynt, maxbibnames=2]{biblatex}
-
-%Setup hyperref package, and colors for links
-\definecolor{linkcolour}{rgb}{0,0.2,0.6}
-\usepackage[
-    pdfauthor={Mohamed Tahiri},
-    pdftitle={CV - Mohamed Tahiri},
-    pdfsubject={CV de Mohamed Tahiri},
-    pdfkeywords={Mohamed Tahiri, CV},
-    colorlinks,
-    breaklinks,
-    urlcolor=linkcolour,
-    linkcolor=linkcolour
-]{hyperref}
-
-\setlength\bibitemsep{1em}
-
-%for social icons
-\usepackage{fontawesome5}
-
-%debug page outer frames
-%\usepackage{showframe}
-
-
-% job listing environments
-\newenvironment{jobshort}[2]
-    {
-    \begin{tabularx}{\linewidth}{@{}l X r@{}}
-    \textbf{#1} & \hfill &  #2 \\[2pt]
-    \end{tabularx}
-    } {}
-
-
-\newenvironment{joblong}[2]
-    {
-    \begin{tabularx}{\linewidth}{@{}l X r@{}}
-    \textbf{#1} & \hfill &  #2 \\[2pt]
-    \end{tabularx}
-    \begin{minipage}[t]{\linewidth}
-    \begin{itemize}[nosep,after=\strut, leftmargin=1em, itemsep=3pt,label=--]
-    }
-    {
-    \end{itemize}
-    \end{minipage}    
-    }
-
-
-
-%----------------------------------------------------------------------------------------
-%	Begin Document
-%----------------------------------------------------------------------------------------
 \begin{document}
 
-% Non-numbered pages
-\pagestyle{empty}
-
 %----------------------------------------------------------------------------------------
-%	Header
+%	En-tête
 %----------------------------------------------------------------------------------------
 
-\begin{tabularx}{\linewidth}{@{} C @{}}
-    \Huge{Mohamed Tahiri}                                                                 \\[7.5pt]
-    \href{https://mohamedtahiri.com}{\raisebox{-0.05\height}\faGlobe \ mohamedtahiri.com} \\
-\end{tabularx}
-
-\begin{tabularx}{\linewidth}{@{} C @{}}
-    \href{https://github.com/moha-tah}{\raisebox{-0.05\height}\faGithub\ @moha-tah} \ $|$ \
-    \href{https://linkedin.com/in/moha-tah}{\raisebox{-0.05\height}\faLinkedin\ moha-tah} \ $|$ \
-    \href{mailto:me@mohamedtahiri.com}{\raisebox{-0.05\height}\faEnvelope \ me@mohamedtahiri.com} \\
-\end{tabularx}
-
-% \section{Résumé}
-Étudiant en ingénierie logicielle à l’UTC, spécialisé en systèmes informatiques, avec un fort intérêt pour l’IA, et passionné par la conception d’architectures efficaces ainsi que le développement d’applications, performantes et à grande échelle.
+{\color{accent}\fontsize{22}{24}\selectfont\bfseries Mohamed Tahiri}\par
+\vspace{3pt}
+{\large Ingénieur IA\sep Agents LLM, RAG, évaluation}\par
+\vspace{3pt}
+{\small Miami, États-Unis\sep
+\href{mailto:me@mohamedtahiri.com}{me@mohamedtahiri.com}\sep
+\href{https://mohamedtahiri.com}{mohamedtahiri.com}\sep
+\href{https://linkedin.com/in/moha-tah}{linkedin.com/in/moha-tah}\sep
+\href{https://github.com/moha-tah}{github.com/moha-tah}}\par
+\vspace{5pt}
+Ingénieur IA qui met en production des systèmes à base de LLM et les mesure : agents, recherche documentaire,
+évaluation, CI et infrastructure. Seul ingénieur d'un assistant IA utilisé dans une filiale du groupe Air France-KLM.
 
 %----------------------------------------------------------------------------------------
-%	Body
+\section{Expérience professionnelle}
+
+\entry{Ingénieur IA (VIE)}{Groupe Air France-KLM, Miami, États-Unis}{mars 2026 – févr. 2027}
+\begin{itemize}
+  \item Conception et mise en production, seul, d'un agent IA qui répond aux questions de maintenance
+        aéronautique et de l'entreprise en citant ses sources (Claude ; 11 outils en lecture seule dont recherche hybride,
+        recherches exactes, text-to-SQL ; photo et voix ; anglais, français, espagnol). En service depuis mars 2026 :
+        59~utilisateurs en cinq mois ; la DRH en a fait le point d'entrée des questions RH sur l'intranet.
+  \item Indexation de plus de 1,3 million de fragments (historique de maintenance et intranet mis à jour toutes les
+        heures, 17\,800 manuels) : recherche hybride dense et sparse dans Qdrant, embeddings Voyage AI, reranking.
+  \item Évaluations de la recherche et des réponses (77 requêtes annotées ; 33 questions réelles, LLM-as-judge),
+        comparaison de 5 modèles d'embedding et 5 rerankers ; le reranking porte le nDCG@10 de 0,68 à 0,84.
+  \item Fiabilité et coût maîtrisés : plus de 2\,600 tests (seuil de couverture à 99\,\%), analyses de sécurité
+        en CI, Terraform (111 ressources), Ansible, alertes Sentry et CloudWatch, prompt caching ; moins de 20\,\$ par mois.
+  \item Plugin Claude Code qui transforme un court questionnaire en vidéos de formation et formations interactives
+        aux couleurs de l'entreprise, pour des équipes non techniques : script, synthèse vocale locale, rendu Remotion.
+\end{itemize}
+\entrygap
+
+\entry{Stagiaire ingénieur logiciel, backend et data}{Napta, Paris}{sept. 2024 – févr. 2025}
+\begin{itemize}
+  \item Pipelines ETL Python/Airflow (API, SFTP, bases de données, CSV) vers PostgreSQL, sur des millions de lignes.
+  \item Bot GitLab-Slack qui a réduit de 50\,\% le délai de revue des merge requests, de l'idée à l'adoption par l'équipe.
+  \item Amélioration d'outils Flask internes, de la CI/CD et du produit React/Next.js (équipe de sept ingénieurs seniors).
+\end{itemize}
+\entrygap
+
+\entry{Formateur en algorithmique, bénévole}{UT'Code, Compiègne}{févr. 2023 – févr. 2024}
+\begin{itemize}
+  \item Préparation d'étudiants aux concours d'algorithmique ; 6\textsuperscript{e} sur 70 à un concours de programmation.
+\end{itemize}
+
 %----------------------------------------------------------------------------------------
-
-\section{Expérience Professionnelle}
-
-% \begin{joblong}{Freelance Full Stack Developer}{April 2024 - Present}
-%     \item line
-%     \item line
-% \end{joblong}
-
-\begin{joblong}{Stagiaire Ingénieur logiciel, \href{https://www.napta.io}{Napta}, Paris}{Sept. 2024 - Fév. 2025}
-    \item \textbf{Data Engineering \& Automatisation} – Conception et optimisation de pipelines ETL utilisant Python et Airflow pour APIs, SFTP, bases de données, fichiers CSV, etc., gérant des données à grande échelle (millions de lignes).
-    \item \textbf{Développement Backend et Frontend} – Amélioration d'outils Flask internes, contribution aux projets React/Next.js, et création d'une intégration GitLab-Slack réduisant de 50\% le temps de revue des PR.
-    \item \textbf{Collaboration \& Impact} – Travail transversal avec revues de code, tests, et coordination avec les Account Managers, améliorant l'efficacité d'équipe et la polyvalence technique (DevOps/CI-CD inclus).
-\end{joblong}
-
-\begin{jobshort}{Enseignant volontaire en association de programmation, UT'Code, Compiègne}{Fév. 2023 - Fév. 2024}
-    Formation d'autres étudiants aux compétitions d'algorithmique et structures de données. Participation aux compétitions universitaires en tant que membre de cette association. Obtention de la 6ème place sur plus de 50 équipes lors d'une compétition organisée par Sopra Steria.
-\end{jobshort}
-
-\begin{jobshort}{Stagiaire ouvrier, \href{https://www.loreal.com}{L'Oréal Centréal}, Mitry-Mory}{Jan. 2023 - Fév. 2023}
-    Application de compétences techniques pour optimiser les processus de préparation de commandes et améliorer l'efficacité des flux de travail. Collaboration avec les équipes pour rationaliser la gestion des stocks et améliorer la productivité.
-\end{jobshort}
-
-% Projets
 \section{Projets}
 
-\begin{joblong}{Moteur de Recherche de Cours – Application Web SaaS}{\href{https://mohamedtahiri.com/projects/my-biggest-project}{En savoir plus}}
-    \item Développement d'un moteur de recherche de cours SaaS avec Next.js, NestJS, PostgreSQL, Supabase, AWS, et Algolia (moteur de filtrage et classement alimenté par IA). Sortie prévue bientôt.
-    \item Implémentation d'un backend sécurisé : authentification JWT, accès basé sur les rôles, pipelines CI/CD (GitHub Actions).
-    \item Lancement d'un chat en temps réel, de dashboards pour enseignants, avec tests et environnements (dev, preview, prod).
-\end{joblong}
-\begin{joblong}{Mon Portfolio – \href{https://mohamedtahiri.com}{mohamedtahiri.com}}{\href{https://github.com/moha-tah/portfolio}{Voir le code}}
-    \item Développement du frontend en Next.js avec Tailwind CSS, i18n et TanStack Query, et du backend en NestJS avec PrismaORM et Swagger pour la documentation API.
-    \item Configuration CI/CD avec GitHub Actions (traductions automatisées, tests et déploiement) et déploiement sur Vercel (frontend) et Railway (backend).
-\end{joblong}
+\entry{Plateforme de découverte de cours}{web, iOS et Android}{2024 – aujourd'hui}
+\begin{itemize}
+  \item Premier contributeur (plus de 1\,100 commits, équipe de 15) : API NestJS, front Next.js et Capacitor,
+        recherche géolocalisée Algolia, Supabase, et l'essentiel de l'infrastructure Terraform/Terragrunt (GCP, Cloudflare, Vercel).
+\end{itemize}
+\entrygap
 
-\begin{jobshort}{Sumo Spheres – Jeu Multijoueur en Ligne}{\href{https://mohamedtahiri.com/projects/online-multiplayer-game}{En savoir plus}}
-    Création d'un jeu d'arène (Windows/Mac) avec physique temps réel, adversaires pilotés par IA, et mode en ligne utilisant Unity Cloud. Ingénierie de réseau temps réel avec sockets, optimisation UDP/TCP et latence $<$200ms avec 10 joueurs.
-\end{jobshort}
+\entry{SDK et intégrations pour une API publique d'horaires}{Python, TypeScript}{2023 – aujourd'hui}
+\begin{itemize}
+  \item Spécification OpenAPI, vérifiée chaque nuit contre l'API réelle, et générateur de SDK open source typés Python et
+        TypeScript publiés sur PyPI et npm, couverts à 100\,\% par les tests.
+  \item Principal contributeur de la skill Alexa (TypeScript, AWS Lambda, 7 locales) et de l'intégration Home Assistant.
+\end{itemize}
+\entrygap
 
-\begin{jobshort}{Système Distribué Décentralisé}{\href{https://mohamedtahiri.com/projects/decentralized-distributed-system}{En savoir plus}}
-    Conception d'un système distribué entièrement décentralisé où les nœuds collectent, vérifient et partagent des données de capteurs, assurant la cohérence avec horloges logiques, algorithmes d'élection, et coordination pair-à-pair.
-\end{jobshort}
+\entry{Expérimentation d'agent autonome}{Claude Code, Python}{2026}
+\begin{itemize}
+  \item Agent Claude Code qui cherche, construit, teste et publie des outils de données web, avec validation humaine de
+        toute dépense : 7 outils en ligne sur l'Apify Store, 117 tests, un serveur MCP inscrit au registre MCP officiel.
+\end{itemize}
 
-%----------------------------------------------------------------------------------------
-%	Formation
 %----------------------------------------------------------------------------------------
 \section{Formation}
 
-\begin{jobshort}{2022 - 2026    Diplôme d'Ingénieur en Informatique}{\href{https://www.utc.fr}{UTC}, France}
-    Spécialisé en Génie des Systèmes Informatiques. \textbf{Cours principaux :} Algorithmes \& Structures de Données, IA, Machine Learning, Deep Learning, Data Science, Statistics, POO, Systèmes distribués, Réseaux, Cybersécurité, Web, etc.
-\end{jobshort}
+\entry{Université de technologie de Compiègne (UTC), Alliance Sorbonne Université}{France}{2022 – 2026}
+Diplôme d'ingénieur en génie informatique, filière ingénierie des systèmes d'information.\par
+Cours : machine learning, deep learning, systèmes distribués, bases de données, algorithmique, statistiques.\par
+\vspace{3pt}
+\entry{Classe préparatoire MPSI}{Lycée Charlemagne, Paris}{2021 – 2022}
 
-\begin{jobshort}{2021 - 2022    Classe Préparatoire aux Grandes Écoles (MPSI)}{Lycée Charlemagne, Paris, France}
-\end{jobshort}
-
-\vspace{-1em}
-
-\begin{jobshort}{2018 - 2021    Baccalauréat Scientifique – Mention Très bien}{Lycée Privé L'Espérance, France}
-\end{jobshort}
-
-%----------------------------------------------------------------------------------------
-%	Compétences
 %----------------------------------------------------------------------------------------
 \section{Compétences}
 
-\begin{tabularx}{\linewidth}{@{}l X@{}}
-    \textbf{Data \& AI} & \normalsize{Airflow, NumPy, Pandas, Python, PyTorch, Google Apps Script, Claude Code, Cursor}           \\
-    \textbf{Backend}    & \normalsize{Python, TypeScript, NestJS, TypeORM, Prisma, Flask, SQL, Airflow, Java}                     \\
-    \textbf{DevOps}     & \normalsize{Cloudflare, Vercel, AWS, GCP, GitHub Actions, GitLab CI/CD, Shell, Turborepo, Jest, Pytest} \\
-    \textbf{Langues}    & \normalsize{Français (Langue Maternelle), Anglais (Niveau C1, TOEIC 985)}                               \\
-\end{tabularx}
+\skill{IA et LLM}{API Claude, agents et tool use, RAG, recherche hybride, reranking, embeddings, Qdrant, Voyage AI,
+évaluation (métriques de recherche, LLM-as-judge), prompt caching, MCP, Claude Code, PyTorch}
+\skill{Langages}{Python, TypeScript, SQL, Go, Java}
+\skill{Backend et data}{NestJS, Next.js, React, Chainlit, Flask, Airflow, PostgreSQL, DuckDB, Supabase, Algolia}
+\skill{Infrastructure}{Docker, Terraform, Ansible, AWS, GCP, GitHub Actions, GitLab CI, Sentry, pytest, Playwright}
+\skill{Langues}{français (langue maternelle), anglais (courant, TOEIC 985/990)}
 
 \end{document}

@@ -1,211 +1,107 @@
-%----------------------------------------------------------------------------------------
-%	Document Definition
-%----------------------------------------------------------------------------------------
+\documentclass[letterpaper,10pt]{article}
 
-\documentclass[a4paper,10pt]{article}
+\input{style}
+\hypersetup{
+  pdftitle={Mohamed Tahiri - AI Engineer - Resume},
+  pdfauthor={Mohamed Tahiri},
+  pdfsubject={Resume},
+  pdfkeywords={AI Engineer, LLM, agents, RAG, hybrid search, evaluation, Python, TypeScript},
+  pdflang={en-US}
+}
 
-%----------------------------------------------------------------------------------------
-%	Font
-%----------------------------------------------------------------------------------------
-
-% \usepackage{fontspec}
-% \defaultfontfeatures{Ligatures=TeX}
-
-% \setmainfont[
-% SmallCapsFont = Fontin-SmallCaps.otf,
-% BoldFont = Fontin-Bold.otf,
-% ItalicFont = Fontin-Italic.otf
-% ]
-% {Fontin.otf}
-
-%----------------------------------------------------------------------------------------
-%	Packages
-%----------------------------------------------------------------------------------------
-
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage{lmodern}
-
-\usepackage{url}
-\usepackage{parskip} 	
-
-% Other packages for formatting
-\RequirePackage{color}
-\RequirePackage{graphicx}
-\usepackage[usenames,dvipsnames]{xcolor}
-\usepackage[scale=0.9]{geometry}
-
-% Tabularx environment
-\usepackage{tabularx}
-
-% For lists within experience section
-\usepackage{enumitem}
-
-% centered version of 'X' col. type
-\newcolumntype{C}{>{\centering\arraybackslash}X} 
-
-% To prevent spillover of tabular into next pages
-\usepackage{supertabular}
-\usepackage{tabularx}
-\newlength{\fullcollw}
-\setlength{\fullcollw}{0.47\textwidth}
-
-% Custom \section
-\usepackage{titlesec}				
-\usepackage{multicol}
-\usepackage{multirow}
-
-\titleformat{\section}{\Large\scshape\raggedright}{}{0em}{}[\titlerule]
-\titlespacing{\section}{0pt}{5pt}{5pt}
-
-% For publications
-\usepackage[style=authoryear,sorting=ynt, maxbibnames=2]{biblatex}
-
-%Setup hyperref package, and colors for links
-\definecolor{linkcolour}{rgb}{0,0.2,0.6}
-\usepackage[
-    pdfauthor={Mohamed Tahiri},
-    pdftitle={CV - Mohamed Tahiri},
-    pdfsubject={CV of Mohamed Tahiri},
-    pdfkeywords={Mohamed Tahiri, CV, Resume},
-    colorlinks,
-    breaklinks,
-    urlcolor=linkcolour,
-    linkcolor=linkcolour
-]{hyperref}
-
-\setlength\bibitemsep{1em}
-
-%for social icons
-\usepackage{fontawesome5}
-
-%debug page outer frames
-%\usepackage{showframe}
-
-
-% job listing environments
-\newenvironment{jobshort}[2]
-    {
-    \begin{tabularx}{\linewidth}{@{}l X r@{}}
-    \textbf{#1} & \hfill &  #2 \\[3.75pt]
-    \end{tabularx}
-    } {}
-
-
-\newenvironment{joblong}[2]
-    {
-    \begin{tabularx}{\linewidth}{@{}l X r@{}}
-    \textbf{#1} & \hfill &  #2 \\[3.75pt]
-    \end{tabularx}
-    \begin{minipage}[t]{\linewidth}
-    \begin{itemize}[nosep,after=\strut, leftmargin=1em, itemsep=3pt,label=--]
-    }
-    {
-    \end{itemize}
-    \end{minipage}    
-    }
-
-
-
-%----------------------------------------------------------------------------------------
-%	Begin Document
-%----------------------------------------------------------------------------------------
 \begin{document}
-
-% Non-numbered pages
-\pagestyle{empty}
 
 %----------------------------------------------------------------------------------------
 %	Header
 %----------------------------------------------------------------------------------------
 
-\begin{tabularx}{\linewidth}{@{} C @{}}
-    \Huge{Mohamed Tahiri}                                                                 \\[7.5pt]
-    \href{https://mohamedtahiri.com}{\raisebox{-0.05\height}\faGlobe \ mohamedtahiri.com} \\
-\end{tabularx}
-
-\begin{tabularx}{\linewidth}{@{} C @{}}
-    \href{https://github.com/moha-tah}{\raisebox{-0.05\height}\faGithub\ @moha-tah} \ $|$ \
-    \href{https://linkedin.com/in/moha-tah}{\raisebox{-0.05\height}\faLinkedin\ moha-tah} \ $|$ \
-    \href{mailto:me@mohamedtahiri.com}{\raisebox{-0.05\height}\faEnvelope \ me@mohamedtahiri.com} \\
-\end{tabularx}
-
-% \section{Summary}
-Software Engineering student at UTC specializing in Computer Systems, with a strong focus on artificial intelligence, passionate about designing efficient architectures and building intelligent, high-performance, data-driven applications.
+{\color{accent}\fontsize{22}{24}\selectfont\bfseries Mohamed Tahiri}\par
+\vspace{3pt}
+{\large AI Engineer\sep LLM agents, RAG, evaluation}\par
+\vspace{3pt}
+{\small Miami, FL\sep
+\href{mailto:me@mohamedtahiri.com}{me@mohamedtahiri.com}\sep
+\href{https://mohamedtahiri.com}{mohamedtahiri.com}\sep
+\href{https://linkedin.com/in/moha-tah}{linkedin.com/in/moha-tah}\sep
+\href{https://github.com/moha-tah}{github.com/moha-tah}}\par
+\vspace{5pt}
+AI engineer who ships LLM systems to production and measures them: agents, retrieval, evaluation, CI and
+infrastructure. Sole engineer behind an AI assistant used across an Air France-KLM group company.
 
 %----------------------------------------------------------------------------------------
-%	Body
+\section{Experience}
+
+\entry{AI Engineer}{Air France-KLM group, Miami, FL}{Mar 2026 – Present}
+\begin{itemize}
+  \item Designed and shipped, as sole engineer, an AI agent that answers aircraft maintenance and company questions
+        with cited sources (Claude; 11 read-only tools incl. hybrid search, exact lookups, text-to-SQL; photo and voice
+        input; EN/FR/ES). Live since March 2026: 59 users in five months; HR made it the intranet's entry point for
+        policy questions.
+  \item Indexed 1.3M+ chunks from maintenance history, 17,800 technical manuals and the intranet (live sources refreshed
+        hourly): hybrid dense + sparse search in Qdrant, Voyage AI embeddings, rank fusion and reranking.
+  \item Built retrieval and answer evaluations (77 labeled queries; 33 real multilingual questions, LLM-as-judge) and
+        benchmarked 5 embedding models and 5 rerankers; reranking lifted nDCG@10 from 0.68 to 0.84.
+  \item Made it reliable and cheap to run: 2,600+ tests behind a 99\% branch-coverage gate, security scans in CI,
+        Terraform (111 resources) and Ansible, Sentry and CloudWatch alerts, prompt caching; under \$20 a month.
+  \item Built a Claude Code plugin that turns a short Q\&A into on-brand training videos and interactive trainings
+        for non-technical teams: script, offline text-to-speech, Remotion rendering.
+\end{itemize}
+\entrygap
+
+\entry{Software Engineer Intern, Backend \& Data}{Napta, Paris}{Sep 2024 – Feb 2025}
+\begin{itemize}
+  \item Built Python/Airflow ETL pipelines from APIs, SFTP, databases and CSV files into PostgreSQL (millions of rows).
+  \item Built a GitLab-to-Slack merge-request bot that cut code-review turnaround by 50\%, from idea to team adoption.
+  \item Improved internal Flask tools, CI/CD pipelines and the React/Next.js product, in a team of seven senior engineers.
+\end{itemize}
+\entrygap
+
+\entry{Algorithms Instructor, volunteer}{UT'Code, Compi\`egne}{Feb 2023 – Feb 2024}
+\begin{itemize}
+  \item Coached students in algorithms and data structures for contests; ranked 6th of 70 in a programming contest.
+\end{itemize}
+
 %----------------------------------------------------------------------------------------
-
-\section{Work Experience}
-
-% \begin{joblong}{Freelance Full Stack Developer}{April 2024 - Present}
-%     \item line
-%     \item line
-% \end{joblong}
-
-\begin{joblong}{Software Engineer Intern, \href{https://www.napta.io}{Napta}, Paris}{Sept. 2024 - Feb. 2025}
-    \item \textbf{Data Engineering \& Automation} – Built and optimized ETL pipelines using Python and Airflow for APIs, SFTP, databases, CSV files etc., handling large-scale data processing and validation (millions of rows).
-    \item \textbf{Backend and Frontend Development} – Enhanced internal Flask tools, contributed to React/Next.js projects, and built a GitLab-to-Slack integration cutting PR review time by 50\%.
-    \item \textbf{Collaboration \& Impact} – Worked cross-functionally with code reviews, testing, and coordination with Account Managers, enhancing team efficiency and technical versatility (DevOps/CI-CD included).
-\end{joblong}
-
-\begin{jobshort}{Volunteer Programming Club Instructor, UT'Code, Compiègne}{Feb. 2023 - Feb. 2024}
-    Trained other students for algorithm and data structure-based competitions. Participated in university-level competitions as a member of this association. Achieved a 6th place out of over 50 teams in a competition organized by Sopra Steria.
-\end{jobshort}
-
-\begin{jobshort}{Industrial Discovery Intern, \href{https://www.loreal.com}{L'Oréal Centréal}, Mitry-Mory}{Jan. 2023 - Feb. 2023}
-\end{jobshort}
-
-% Projects
 \section{Projects}
 
-\begin{joblong}{Course Search Engine – SaaS Web Application}{\href{https://mohamedtahiri.com/projects/my-biggest-project}{Learn more}}
-    \item Developed with Next.js, NestJS, PostgreSQL, Supabase, AWS, and Algolia (AI-powered filtering \& ranking engine). Learnt a lot about how to design a scalable API. Released soon.
-    \item Implemented secure backend features: JWT authentication, role-based access control, CI/CD pipelines (GitHub Actions).
-    \item Built real-time chat, student/teacher dashboards, tests with Jest and scalable environments (dev, preview, prod).
-\end{joblong}
+\entry{Course discovery platform}{web, iOS and Android}{2024 – Present}
+\begin{itemize}
+  \item Top contributor (1,100+ commits, team of 15): NestJS API, Next.js front end wrapped for mobile with Capacitor,
+        Algolia geo search, Supabase, and most of the Terraform/Terragrunt infrastructure (GCP, Cloudflare, Vercel).
+\end{itemize}
+\entrygap
 
-\begin{joblong}{My Portfolio – \href{https://mohamedtahiri.com}{mohamedtahiri.com}}{\href{https://github.com/moha-tah/portfolio}{See code}}
-    \item Built the frontend in Next.js with Tailwind CSS, i18n and TanStack Query, and the backend in NestJS with PrismaORM and Swagger for API documentation.
-    \item Set up CI/CD with GitHub Actions (automated translations, testing and deployment) and deployed on Vercel (frontend) and Railway (backend).
-\end{joblong}
+\entry{SDKs and integrations for a public schedules API}{Python, TypeScript}{2023 – Present}
+\begin{itemize}
+  \item Wrote the OpenAPI spec, checked nightly against the live API, and a generator for open-source, typed Python and
+        TypeScript SDKs published to PyPI and npm with 100\% test coverage.
+  \item Main contributor to the Alexa skill (TypeScript, AWS Lambda, 7 locales) and the Home Assistant integration.
+\end{itemize}
+\entrygap
 
-\begin{jobshort}{Sumo Spheres – Online Multiplayer Game in C\#}{\href{https://mohamedtahiri.com/projects/online-multiplayer-game}{Learn more}}
-    Built an arena game (Windows/MacOS) with real-time physics, AI-driven opponents, and online mode using Unity Cloud. Engineered real-time networking with sockets, UDP/TCP optimization and $<$200ms latency for up to 10 players.
-\end{jobshort}
+\entry{Autonomous agent experiment}{Claude Code, Python}{2026}
+\begin{itemize}
+  \item Set up a Claude Code agent that researches, builds, tests and publishes web-data tools, with a human approval
+        gate on any spending: 7 tools live on the Apify Store, 117 tests, an MCP server listed in the official MCP Registry.
+\end{itemize}
 
-\begin{jobshort}{Decentralized Distributed System in Golang}{\href{https://mohamedtahiri.com/projects/decentralized-distributed-system}{Learn more}}
-    Designed a fully decentralized distributed system where nodes collect, verify, and share sensor data, ensuring consistency with logical clocks, election algorithms, and peer-to-peer coordination.
-\end{jobshort}
-
-%----------------------------------------------------------------------------------------
-%	Education
 %----------------------------------------------------------------------------------------
 \section{Education}
 
-\begin{jobshort}{2022 - 2026    Software Engineering Master's Degree}{\href{https://www.utc.fr}{UTC} (Sorbonne University), France}
-    Specialized in Computer Systems Engineering. \textbf{Main courses:} Algorithms \& Data Structures, AI, Machine Learning, Deep Learning, Data Science, Statistics, OOP, Distributed Systems, Networks, Cybersecurity, Web, etc.
-\end{jobshort}
+\entry{Universit\'e de technologie de Compi\`egne (UTC), Sorbonne University Alliance}{France}{2022 – 2026}
+Dipl\^ome d'ing\'enieur (master's-level engineering degree) in Computer Science, Information Systems track.\par
+Coursework: machine learning, deep learning, distributed systems, databases, algorithms, statistics.\par
+\vspace{3pt}
+\entry{Preparatory classes in mathematics and physics (MPSI)}{Lyc\'ee Charlemagne, Paris}{2021 – 2022}
 
-\begin{jobshort}{2021 - 2022    CPGE MPSI - Intensive Foundation Program in Science}{Lycée Charlemagne, Paris, France}
-\end{jobshort}
-
-\vspace{-1em}
-
-\begin{jobshort}{2018 - 2021    Private High School, diploma with Highest Honors}{L'Espérance, France}
-\end{jobshort}
-
-%----------------------------------------------------------------------------------------
-%	Skills
 %----------------------------------------------------------------------------------------
 \section{Skills}
 
-\begin{tabularx}{\linewidth}{@{}l X@{}}
-    \textbf{Data \& AI} & \normalsize{Airflow, NumPy, Pandas, Python, PyTorch, Google Apps Script, Claude Code, Cursor}           \\
-    \textbf{Backend}    & \normalsize{Python, TypeScript, C(++/\#), Golang, NestJS, TypeORM, Prisma, Flask, SQL, Airflow, Java}   \\
-    \textbf{DevOps}     & \normalsize{Cloudflare, Vercel, AWS, GCP, GitHub Actions, GitLab CI/CD, Shell, Turborepo, Jest, Pytest} \\
-    \textbf{Languages}  & \normalsize{French (Native Language), English (C1 Level, TOEIC 985)}                                    \\
-\end{tabularx}
+\skill{AI \& LLM}{Claude API, agents and tool use, RAG, hybrid search, reranking, embeddings, Qdrant, Voyage AI,
+evaluation (IR metrics, LLM-as-judge), prompt caching, MCP, Claude Code, PyTorch}
+\skill{Programming}{Python, TypeScript, SQL, Go, Java}
+\skill{Backend \& data}{NestJS, Next.js, React, Chainlit, Flask, Airflow, PostgreSQL, DuckDB, Supabase, Algolia}
+\skill{Infrastructure}{Docker, Terraform, Ansible, AWS, GCP, GitHub Actions, GitLab CI, Sentry, pytest, Playwright}
+\skill{Languages}{French (native), English (fluent, TOEIC 985/990)}
 
 \end{document}

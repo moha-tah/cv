@@ -8,6 +8,7 @@ This is a LaTeX-based CV repository that generates both English and French versi
 
 - `cv.tex` - English CV source file (LaTeX)
 - `cv-fr.tex` - French CV source file (LaTeX)
+- `style.tex` - Layout shared by both CVs (Inter font, sections, entries, ATS text mapping)
 - `index.html` - Redirects to English CV PDF
 - `fr/index.html` - Redirects to French CV PDF
 
@@ -57,12 +58,15 @@ latexmk -pdf cv-fr.tex  # Build French CV
 
 The CV uses standard LaTeX packages including:
 
+- `inter` (Type 1) and `microtype` for the font
 - `geometry` for page layout
 - `xcolor` for colors
-- `tabularx` for tables
 - `enumitem` for lists
 - `titlesec` for custom sections
-- `hyperref` for links (implied from usage)
+- `hyperref` for links
+- `babel` (French CV only)
+
+Build with pdfLaTeX (`latexmk -pdf`): `style.tex` relies on `\pdfgentounicode` so the text extracts cleanly for ATS parsers.
 
 ## Deployment
 
